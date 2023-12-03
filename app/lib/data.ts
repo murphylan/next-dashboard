@@ -219,7 +219,7 @@ export async function fetchFilteredCustomers(query: string) {
   }
 }
 
-export async function getUser(email: string) {
+export async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await sql`SELECT * from USERS where email=${email}`;
     return user.rows[0] as User;
